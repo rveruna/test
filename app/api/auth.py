@@ -20,7 +20,7 @@ def verify_auth():
 @auth.route('/login', methods=['POST'])
 def login():
    """ POST only operation. check login form. Log user in """
-   if current_user.is_authenticated():
+   if current_user.is_authenticated:
       return Response.make_success_resp(msg="You are already logged in")
 
    form = LoginForm()
@@ -50,7 +50,7 @@ def logout():
 @auth.route('/signup', methods=['POST'])
 def signup():
    if current_user.is_authenticated():
-      return make_success_resp("You're already signed up")
+      return Response.make_success_resp("You're already signed up")
 
    form = SignupForm()
 
